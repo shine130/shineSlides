@@ -1,12 +1,19 @@
 ﻿(function($){
-	$(function(){
-		var slide_ctnbox=$("#slidebox").find(".slidectn");
-		var slide_next=$("#slidebox").find(".nextbtn");
-		var slide_pre=$("#slidebox").find(".prebtn");
-		var slide_controls=$("#slidebox .slide_controls").find("span");
+	$.fn.shineSlide=function(options){
+		var defaults={
+			ctnbox:".slidectn",
+			nextbtn:".nextbtn",
+			prebtn:".prebtn",
+			controls:".slide_controls span"
+		};
+		var opts=$.extend(defaults,options);
+		var slide_ctnbox=$(this).find(opts.ctnbox);
+		var slide_next=$(this).find(opts.nextbtn);
+		var slide_pre=$(this).find(opts.prebtn);
+		var slide_controls=$(this).find(opts.controls);
 		var curnum=0;
-		var allnum=$("#slidebox .slidectn").find(".item").length;
-		var ele_width=$("#slidebox .slidectn").find(".item").width();
+		var allnum=$(this).find(opts.ctnbox+" .item").length;
+		var ele_width=$(this).find(opts.ctnbox+" .item").width();
 		slide_controls.eq(0).addClass("on");
 		slide_controls.each(function(i){
 			$(this).bind("click",function(){
@@ -69,12 +76,12 @@
 				gonext();
 			},5000);
 		};
-		$("#slidebox").hover(function(){
+		$(this).hover(function(){
 			clearInterval(timer);
 		},
 		function(){
 			autoPlay();
 		});
 		autoPlay();
-	});
+	}
 })(jQuery)
