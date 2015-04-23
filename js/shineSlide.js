@@ -19,12 +19,8 @@
 		slide_controls.eq(0).addClass("on");
 		slide_controls.each(function(i){
 			$(this).bind("click",function(){
-				slide_ctnbox.stop();
-				slide_ctnbox.animate({
-					"margin-Left":-i*ele_width+"px"
-				},500);
-				slide_controls.removeClass("on");
-				$(this).addClass("on");
+				var _this=$(this);
+				eleslide(_this,i);
 				curnum=i;
 			});
 		});
@@ -34,42 +30,50 @@
 		slide_pre.bind("click",function(){
 			gopre();
 		});
+		function eleslide(_this,i){
+			slide_ctnbox.stop(true,true);
+			slide_ctnbox.animate({
+				"margin-Left":-i*ele_width+"px"
+			},500);
+			slide_controls.removeClass("on");
+			_this.addClass("on");
+		};
+		function switchClass(eqele){
+			slide_controls.removeClass("on");
+			slide_controls.eq(eqele).addClass("on");
+		};
 		function gonext(){
-			slide_ctnbox.stop();
+			slide_ctnbox.stop(true,true);
 			var nextnum=curnum+1;
 			if(nextnum<allnum){
 				slide_ctnbox.animate({
 					"margin-Left":-nextnum*ele_width+"px"
 				},500);
-				slide_controls.removeClass("on");
-				slide_controls.eq(nextnum).addClass("on");
+				switchClass(nextnum);
 				curnum++;
 			}else{
 				slide_ctnbox.animate({
 					"margin-Left":"0px"
 				},500);
-				slide_controls.removeClass("on");
-				slide_controls.eq(0).addClass("on");
+				switchClass(0);
 				curnum=0;
 			};
 		};
 		function gopre(){
-			slide_ctnbox.stop();
+			slide_ctnbox.stop(true,true);
 			var prenum=curnum-1;
 			if(prenum>=0){
 				slide_ctnbox.animate({
 					"margin-Left":-prenum*ele_width+"px"
 				},500);
-				slide_controls.removeClass("on");
-				slide_controls.eq(prenum).addClass("on");
+				switchClass(prenum);
 				curnum--;
 			}else{
 				var num=allnum-1;
 				slide_ctnbox.animate({
 					"margin-Left":-num*ele_width+"px"
 				},500);
-				slide_controls.removeClass("on");
-				slide_controls.eq(num).addClass("on");
+				switchClass(num);
 				curnum=num;
 			};
 		};
