@@ -78,7 +78,6 @@
 				gonext();
 			},opts.autotimer);
 		};
-		console.log(opts.autoPlay);
 		if(opts.autoPlay==true){
 			$(this).hover(function(){
 				clearInterval(timer);
