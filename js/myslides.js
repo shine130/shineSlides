@@ -4,7 +4,9 @@
 			ctnbox:".slidectn",
 			nextbtn:".nextbtn",
 			prebtn:".prebtn",
-			controls:".slide_controls span"
+			controls:".slide_controls span",
+			autotimer:5000,
+			autoPlay:true
 		};
 		var opts=$.extend(defaults,options);
 		var slide_ctnbox=$(this).find(opts.ctnbox);
@@ -74,14 +76,17 @@
 		function autoPlay(){
 			timer=setInterval(function(){
 				gonext();
-			},5000);
+			},opts.autotimer);
 		};
-		$(this).hover(function(){
-			clearInterval(timer);
-		},
-		function(){
-			autoPlay();
-		});
-		autoPlay();
+		console.log(opts.autoPlay);
+		if(opts.autoPlay==true){
+			$(this).hover(function(){
+				clearInterval(timer);
+			},
+			function(){
+				autoPlay();
+				});
+			autoPlay();	
+		};
 	}
 })(jQuery)
