@@ -32,7 +32,6 @@ function updateTimer(){
     }
     scrollEle.eq(slideId).stop(true,true).fadeIn(500);
     btn.eq(slideId).addClass("on");
-    console.log("动画执行"+slideId);
 }
 if (autoPlay) timer = setInterval('updateTimer()', speed);
 obj.hover(function(){
@@ -43,6 +42,5 @@ obj.hover(function(){
 btn.bind("mouseenter",function(e){
     var index=$(this).index();
     slideId=index-1;
-    console.log("btn点击"+slideId);
     updateTimer();
 });
