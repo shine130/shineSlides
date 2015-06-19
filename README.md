@@ -1,4 +1,4 @@
-# jQuery全屏焦点图插件
+# shineSlides
 
 focusSlideShow.html 演示文件
 
