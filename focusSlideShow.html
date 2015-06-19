@@ -12,6 +12,14 @@ ul,li{margin:0; padding:0; list-style:none;}
 .slideBtn {position:absolute; z-index:99; bottom:10px; width:100%; text-align:center;}
 .slideBtn span{background-color:#ccc; color:#000; padding:5px 8px; cursor:pointer;}
 .slideBtn span.on{color:#fff; background-color:#ff0000;}
+.preBtn,.nextBtn{position: absolute; border: 1px solid #000000; z-index: 99; top:300px; background-color: #fff; cursor:pointer; }
+.nextBtn{right: 10px;}
+/*slide end	*/
+/*slide2 test css	*/
+.page{width: 960px; margin: 0 auto; border: 1px solid #ff0000;}
+#slide2{width: 600px;  height: 400px;}
+#slide2 .slideFul{width: 600px;  height: 400px;}
+#slide2 img{width:600px; height: 400px;}
 </style>
 </head>
 <body>
@@ -28,9 +36,55 @@ ul,li{margin:0; padding:0; list-style:none;}
 		<span>3</span>
 		<span>4</span>
 	</div>
+	<span class="preBtn">&lt;上一张</span>
+	<span class="nextBtn">下一张&gt;</span>
 </div>
-<div>其它内容</div>
+
+<div>以上是全屏居中的焦点图演示。容器宽为100%</div>
+
+<div class="page">
+	<div class="slide" id="slide2">
+		<ul class="slideFul">
+			<li><a href=""><img src="p1.jpg" alt=""></a></li>
+			<li><a href=""><img src="p2.jpg" alt=""></a></li>
+			<li><a href=""><img src="p1.jpg" alt=""></a></li>
+			<li><a href=""><img src="p2.jpg" alt=""></a></li>
+		</ul>
+		<div class="slideBtn">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+		</div>
+		<span class="preBtn">&lt;上一张</span>
+		<span class="nextBtn">下一张&gt;</span>
+	</div>
+
+
+	<div>非全屏 960px 居中的其它内容</div>
+</div>
+
+<h2>插件参数配置(以下参数都是可选配置)：</h2>
+<style>
+	pre{background-color: #cccccc; border: 1px solid #a1a1a1; padding: 20px;}
+</style>
+<pre>
+	$("#obj").focusSlide({
+		btn:".slideBtn span", //索引的按钮class名
+		scrollBox:".slideFul", //滚动区域的class名
+		next:".nextBtn", //下一张按钮class名
+		pre:".preBtn", //上一张按钮class名
+		speed:4000,  //切换的速度默认为4秒
+		autoPlay:true, //是否自动播放
+		fullScreen:false //是否是全屏居中，默认未开启
+	});
+</pre>
+
 <script src="js/jquery.min.js"></script>
-<script src="focus.js"></script>
+<script src="js/focus.js"></script>
+<script>
+	$("#slide").focusSlide({fullScreen:true});
+	$("#slide2").focusSlide();
+</script>
 </body>
 </html>
