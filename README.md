@@ -14,3 +14,5 @@ focusSlideShow.html 演示文件
 		fullScreen:false //是否是全屏居中，默认未开启
 	});
 </pre>
+
+<a href="http://blog.ipsfan.com/1786.html" target="_blank">查看演示</a>
