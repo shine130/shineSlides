@@ -15,4 +15,4 @@ focusSlideShow.html 演示文件
 	});
 </pre>
 
-<a href="http://blog.ipsfan.com/1786.html" target="_blank">查看演示</a>
+<a href="http://blog.ipsfan.com/demo/mySlides/focusSlideShow.html" target="_blank">查看演示</a>
